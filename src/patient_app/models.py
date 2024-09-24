@@ -1,5 +1,3 @@
-from django.db import models
-
 # Create your models here.
 
 from django.db import models
@@ -16,3 +14,5 @@ class Appointment(models.Model):  # запись на прием
     date = models.DateField()
     time = models.TimeField()
     description = models.TextField()
+
+
