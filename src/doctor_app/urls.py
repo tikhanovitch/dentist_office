@@ -6,7 +6,4 @@ from . import views
 
 urlpatterns = [
     path('some_url', some_view),
-    # path('register/', register),
-    # path('register/', views.register, name='register'),
-
 ]
