@@ -1,10 +1,12 @@
 from django.urls import path
-from .views import register
+from .views import some_view
 from django.urls import include
 from . import views
 
 
 urlpatterns = [
-    path('register/', views.register, name='register'),
+    path('some_url', some_view),
+    # path('register/', register),
     # path('register/', views.register, name='register'),
+
 ]

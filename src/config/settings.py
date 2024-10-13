@@ -40,8 +40,11 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    # 'patient_app.apps.PatientAppConfig',
+    'patient_app',
+    'doctor_app',
     'rest_framework',
-    'patient_app.apps.PatientAppConfig',
+
 ]
 
 MIDDLEWARE = [
@@ -59,7 +62,10 @@ ROOT_URLCONF = 'config.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [
+             "templates/patient_app",
+             "templates/doctor_app",
+        ],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
