@@ -56,3 +56,21 @@ class PatientCardXRayPart(models.Model):  # лист назначений и у�
     event_date = models.DateField(verbose_name="Дата проведения")
     equivalent_dose = models.FloatField(null=False, verbose_name="Эквивалентная доза(мЗВ)")
     patient = models.ForeignKey(PatientCardMainPart, on_delete=models.CASCADE, related_name='xray_appointments')
+
+
+class VisitsDiary(models.Model):
+    description = models.CharField(
+        max_length=500,
+        blank=False,
+        verbose_name="Дата, жалобы, клиническая картина, результаты исследований, диагноз, план лечения, лечение")
+    PRESCRIBED = {
+        "КОП": "К.О.П.",
+        "ИИИ": "И.И.И.",
+    }
+    prescribed_doctor = models.CharField(
+        max_length=50,
+        choices=PRESCRIBED,
+        null=False,
+        verbose_name="Фамилия, имя, отчество врача"
+    )
+    patient = models.ForeignKey(PatientCardMainPart, on_delete=models.CASCADE, related_name='visits_diary')
