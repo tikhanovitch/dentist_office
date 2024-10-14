@@ -1,6 +1,4 @@
-from datetime import datetime
-
-from django.core.validators import MinValueValidator, RegexValidator
+from django.core.validators import RegexValidator
 from django.db import models
 
 # Create your models here.
@@ -32,3 +30,29 @@ class PatientCardMainPart(models.Model):  # стоматологическая �
 
     def __str__(self):
         return f"{self.surname} {self.name} {self.patronymic}"
+
+
+class PatientCardXRayPart(models.Model):  # лист назначений и учета нагрузок
+    type_of_research = models.CharField(  # рентгенологических исследований
+        max_length=50,
+        null=False,
+        verbose_name="Назначен вид исследования"
+    )
+    PRESCRIBED = {
+        "КОП": "К.О.П.",
+        "ИИИ": "И.И.И.",
+    }
+    prescribed_doctor = models.CharField(
+        max_length=50,
+        choices=PRESCRIBED,
+        null=False,
+        verbose_name="Назначил (врач)"
+    )
+    research_conducted = models.CharField(
+        max_length=50,
+        null=False,
+        verbose_name="Проведено исследование (организация)"
+    )
+    event_date = models.DateField(verbose_name="Дата проведения")
+    equivalent_dose = models.FloatField(null=False, verbose_name="Эквивалентная доза(мЗВ)")
+    patient = models.ForeignKey(PatientCardMainPart, on_delete=models.CASCADE, related_name='xray_appointments')
