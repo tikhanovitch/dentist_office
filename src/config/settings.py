@@ -132,6 +132,10 @@ DATE_INPUT_FORMATS = ['%d-%m-%Y']
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.0/howto/static-files/
 
+# media
+MEDIA_URL = 'media/'
+MEDIA_ROOT = 'media_files'
+
 STATIC_URL = 'static/'
 
 # Default primary key field type
