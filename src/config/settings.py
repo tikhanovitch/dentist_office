@@ -63,8 +63,8 @@ TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
         'DIRS': [
-             "templates/patient_app",
-             "templates/doctor_app",
+             "templates",
+             "templates/patient",
         ],
         'APP_DIRS': True,
         'OPTIONS': {

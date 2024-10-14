@@ -33,6 +33,7 @@ class PatientCardMainPartAdmin(admin.ModelAdmin):
         PatientCardXRayPartInline,
         VisitsDiaryInLine,
     ]
+    search_fields = ["surname", "name", "patronymic"]
 
 #  _____End Admins_____
 
