@@ -7,6 +7,6 @@ urlpatterns = [
     path('login/', views.login_view, name='login'),
     path('main/', views.MainTemplateView.as_view(), name='main'),
     path('personal_account/', views.UserPersonalAccountTemplateView.as_view(), name='personal_account'),
-    path('add_personal_account/<int:user_id>', views.add_personal_account, name='add_personal_account'), #<int:user_id>/
+    path('add_personal_account/', views.add_personal_account, name='add_personal_account'), #<int:user_id>/
 
 ]
