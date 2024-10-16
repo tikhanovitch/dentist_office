@@ -2,7 +2,7 @@ from django import forms
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
 
-from patient_app.models import UserPersonalAccount
+from .models import UserPersonalAccount
 
 
 class CustomUserCreationForm(UserCreationForm):

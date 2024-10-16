@@ -17,8 +17,6 @@ class VisitsDiaryInLine(admin.TabularInline):
     model = VisitsDiary
     extra = 1
 
-#  _____End Inlines_____
-
 #  _____Admins_____
 
 
@@ -34,8 +32,6 @@ class PatientCardMainPartAdmin(admin.ModelAdmin):
         VisitsDiaryInLine,
     ]
     search_fields = ["surname", "name", "patronymic"]
-
-#  _____End Admins_____
 
 
 admin.site.register(PatientCardMainPart, PatientCardMainPartAdmin)
