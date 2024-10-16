@@ -8,5 +8,7 @@ urlpatterns = [
     path('main/', views.MainTemplateView.as_view(), name='main'),
     path('personal_account/', views.UserPersonalAccountTemplateView.as_view(), name='personal_account'),
     path('add_personal_account/', views.add_personal_account, name='add_personal_account'), #<int:user_id>/
+    path('create_appointment/', views.create_appointment, name='create_appointment'),
+    path('logout/', views.logout_view, name='logout'),
 
 ]
