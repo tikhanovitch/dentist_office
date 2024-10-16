@@ -2,7 +2,6 @@ from django.contrib import auth
 from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth import login, authenticate
 from django.views.generic import TemplateView
-
 from .forms import CustomUserCreationForm, LoginForm, UserPersonalAccountForm, AppointmentForm
 from .models import User
 
@@ -42,10 +41,6 @@ def logout_view(request):
     return redirect('main')
 
 
-class MainTemplateView(TemplateView):
-    template_name = "main.html"
-
-
 def add_personal_account(request, user_id):
     user = get_object_or_404(User, pk=user_id)
     if request.method == 'POST':
@@ -61,10 +56,6 @@ def add_personal_account(request, user_id):
     return render(request, 'add_personal_account.html', {'form': form})
 
 
-class UserPersonalAccountTemplateView(TemplateView):
-    template_name = "personal_account.html"
-
-
 def create_appointment(request):
     if request.method == 'POST':
         form = AppointmentForm(request.POST)
@@ -76,3 +67,14 @@ def create_appointment(request):
     else:
         form = AppointmentForm()
     return render(request, 'create_appointment.html', {'form': form})
+
+
+class MainTemplateView(TemplateView):
+    template_name = "main.html"
+
+
+class UserPersonalAccountTemplateView(TemplateView):
+    template_name = "personal_account.html"
+
+
+

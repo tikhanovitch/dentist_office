@@ -10,11 +10,11 @@ class User(models.Model):
     password = models.CharField(max_length=255)
 
 
-class Appointment(models.Model):  # запись на прием
+class Appointment(models.Model):  # запись на прием. Создать поле Ф.И.О.
     user = models.ForeignKey(User, on_delete=models.CASCADE)
-    date = models.DateField()
-    time = models.TimeField()
-    description = models.TextField()
+    date = models.DateField(verbose_name="Дата")
+    time = models.TimeField(verbose_name="Время")
+    description = models.TextField(verbose_name="Описание проблемы")
 
 
 class UserPersonalAccount(models.Model):  # личный кабинет
@@ -24,7 +24,7 @@ class UserPersonalAccount(models.Model):  # личный кабинет
         max_length=12,
         validators=[RegexValidator(
             regex=r'^\+375\d{2}\d{7}$',
-            message="Phone number must be entered in the format '+375XX XXXXXXX'."
+            message="Номер телефона должен быть в формате '+375XX XXXXXXX'."
         )]
     )
     photo = models.ImageField(null=True, blank=True, upload_to="user_photo/")
